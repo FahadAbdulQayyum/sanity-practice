@@ -9,8 +9,7 @@ const Page = () => {
       const data = await client.fetch(`
         *[_type=='post']{post_name,post_description}
         `)
-      const datajson = await data.json();
-      console.log('datajson..', datajson);
+      console.log('data....', data);
     }
     fetchFunction();
   }, []);
