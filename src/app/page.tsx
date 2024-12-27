@@ -7,7 +7,7 @@ const Page = () => {
   useEffect(() => {
     const fetchFunction = async () => {
       const data = await client.fetch(`
-        *[_type=='post']{post_name,post_description}
+        *[_type=='post']{post_title,post_description}
         `)
       console.log('data....', data);
     }
