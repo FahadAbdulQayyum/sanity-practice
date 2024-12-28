@@ -9,17 +9,17 @@ const postType = defineType({
         defineField({
             title: "Post Title",
             name: "post_title",
-            type: "string",
+            type: "string"
         }),
         defineField({
             title: "Post Description",
             name: "post_description",
-            type: "string",
+            type: "string"
         }),
         defineField({
             title: "Post Image",
             name: "post_image",
-            type: "image",
+            type: "image"
         }),
     ]
 })
