@@ -20,6 +20,38 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## How to Install Sanity in the Next.js Project
+
+When you first install Next.js as usual using:
+
+```bash
+npx create-next-app@latest <project-name>
+```
+
+Then install Sanity using:
+
+```bash
+npm i sanity@latest
+```
+
+When you enter your project's directory like:
+
+```bash
+cd <project-name>
+```
+
+Then copy the link provided from the Sanity dashboard and paste it in the VSCode Terminal. After 5 minutes, boom, your Sanity project is initialized. See you tomorrow.
+
+## Accessing Sanity Studio
+
+To add data following the schema you created, navigate to the Sanity Studio by opening the following URL in your browser:
+
+```
+http://localhost:3000/studio
+```
+
+Make sure your development server is running. You can now add and manage your content using the Sanity Studio interface.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
