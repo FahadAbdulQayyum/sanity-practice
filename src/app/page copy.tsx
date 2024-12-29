@@ -8,7 +8,6 @@ import React, { useEffect, useState } from 'react'
 interface dataType {
   post_title: string,
   post_description: string,
-  // post_image: string
   post_image: {
     asset: {
       _ref: string
@@ -44,6 +43,7 @@ const Page = () => {
                 >{v.post_description}</p>
               </span>
               <Image
+                // src={v.post_image.asset._ref}
                 src={urlFor(v.post_image).url()}
                 alt={v.post_title}
                 width="10"
@@ -57,8 +57,3 @@ const Page = () => {
 }
 
 export default Page
-
-// How to use Sanity images in the current code:
-// 1. Import the `urlFor` function from your Sanity image utility file.
-// 2. Use the `urlFor` function to generate the image URL from the Sanity image object.
-// 3. Pass the generated URL to the `src` attribute of the `Image` component from Next.js.
