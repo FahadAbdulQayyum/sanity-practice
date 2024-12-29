@@ -1,4 +1,3 @@
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { defineField, defineType } from "sanity";
 
 const postType = defineType({
