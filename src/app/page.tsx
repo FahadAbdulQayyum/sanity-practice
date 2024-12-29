@@ -34,7 +34,7 @@ const Page = () => {
       {fetchedData?.length === 0 ? <h1>Loading...</h1> :
         <div>
           {
-            fetchedData && fetchedData.map((v: dataType, i) => <div className="bg-gray-50 text-black p-2 my-2" key={i}>
+            fetchedData && fetchedData.map((v: dataType, i) => <div className="flex justify-between items-center bg-gray-50 text-black p-2 my-2" key={i}>
               <span>
                 <h2
                   className="font-bold uppercase text-xl"
@@ -46,8 +46,8 @@ const Page = () => {
               <Image
                 src={urlFor(v.post_image).url()}
                 alt={v.post_title}
-                width="10"
-                height="10" />
+                width="120"
+                height="120" />
             </div>)
           }
         </div>
