@@ -9,7 +9,7 @@ interface DetailBlogProps {
 
 const DetailBlog: React.FC<DetailBlogProps> = ({ data }) => {
     return (
-        <div>
+        <div className="px-standardSize">
             {data && data.map((v, i) => <div key={i}>
                 <h1 className="font-bold">{v.post_title}</h1>
                 <span className="flex flex-col md:flex-row ">
