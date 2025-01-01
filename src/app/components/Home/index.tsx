@@ -3,9 +3,11 @@
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
-interface dataType {
+export interface dataType {
+    _id: string,
     post_title: string,
     post_description: string,
     // post_image: string
@@ -21,19 +23,26 @@ const Home = () => {
     useEffect(() => {
         const fetchFunction = async () => {
             const data: dataType[] = await client.fetch(`
-        *[_type=='post']{post_title,post_description,post_image}
+        *[_type=='post']{_id, post_title, post_description, post_image}
         `)
             setFetchedData(data);
         }
         fetchFunction();
     }, []);
 
+    const router = useRouter();
+
+    const handleNavigate = () => {
+        const id = 123; // Example dynamic ID
+        router.push(`/detail/${id}`); // Navigate to the dynamic route
+    };
+
     return (
         <div>
             {fetchedData?.length === 0 ? <h1>Loading...</h1> :
                 <div className='grid text-[10px] sm:text-[12px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 px-standardSize'>
                     {
-                        fetchedData && fetchedData.map((v: dataType, i) => <div className="flex justify-between items-center bg-gray-50 text-black p-2" key={i}>
+                        fetchedData && fetchedData.map((v: dataType, i) => <div className="flex justify-between items-center bg-gray-50 text-black p-2" key={i} onClick={() => handleNavigate(v._id)}>
                             <span>
                                 <h2
                                     className="font-bold uppercase text-sm sm:text-[16px] md:text-[14px]"

@@ -1,16 +1,30 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import { client } from '@/sanity/lib/client';
+import { dataType } from '@/app/components/Home';
+import DetailBlog from '@/app/components/DetailBlog';
 
 const Detail = () => {
     const { id } = useParams();
 
-    console.log('Dynamic Route ID:', id);
+    const [fetchedData, setFetchedData] = useState<dataType[]>();
+
+    useEffect(() => {
+        const fetchFunction = async () => {
+            const data: dataType[] = await client.fetch(`
+        *[_type=='post']{_id,post_title,post_description,post_image}
+        `)
+            let filteredData: dataType[] = data.filter(v => v._id === id)
+            setFetchedData(filteredData);
+        }
+        fetchFunction();
+    }, [])
 
     return (
         <div>
-            <h1>Detail Page for ID: {id}</h1>
+            <DetailBlog data={fetchedData}/>
         </div>
     );
 };
