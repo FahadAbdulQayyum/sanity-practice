@@ -23,7 +23,6 @@ const Home = () => {
             const data: dataType[] = await client.fetch(`
         *[_type=='post']{post_title,post_description,post_image}
         `)
-            console.log('data....', data);
             setFetchedData(data);
         }
         fetchFunction();
