@@ -10,7 +10,6 @@ export interface dataType {
     _id: string,
     post_title: string,
     post_description: string,
-    // post_image: string
     post_image: {
         asset: {
             _ref: string

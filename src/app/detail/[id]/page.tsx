@@ -16,7 +16,7 @@ const Detail = () => {
             const data: dataType[] = await client.fetch(`
         *[_type=='post']{_id,post_title,post_description,post_image}
         `)
-            let filteredData: dataType[] = data.filter(v => v._id === id)
+            const filteredData: dataType[] = data.filter(v => v._id === id)
             setFetchedData(filteredData);
         }
         fetchFunction();
