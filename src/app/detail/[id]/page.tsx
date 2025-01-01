@@ -1,21 +1,19 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { useRouter } from 'next/navigation'
+import React from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const Detail = () => {
-    const router = useRouter();
-    // const { id } = router.query;
-    const { query } = router;
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id'); // Access the 'id' query parameter
 
-    const id = query.id;
-    console.log('router...', router)
+    console.log('Query Parameter ID:', id);
 
     return (
         <div>
-            {/* <h1>Detail Page for ID: {id}</h1> */}
+            <h1>Detail Page for ID: {id}</h1>
         </div>
-    )
-}
+    );
+};
 
-export default Detail
+export default Detail;
