@@ -3,7 +3,7 @@
 import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 export interface dataType {
@@ -32,8 +32,7 @@ const Home = () => {
 
     const router = useRouter();
 
-    const handleNavigate = () => {
-        const id = 123; // Example dynamic ID
+    const handleNavigate = (id: string) => {
         router.push(`/detail/${id}`); // Navigate to the dynamic route
     };
 
