@@ -1,13 +1,12 @@
-"use client";
+'use client';
 
 import React from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 const Detail = () => {
-    const searchParams = useSearchParams();
-    const id = searchParams.get('id'); // Access the 'id' query parameter
+    const { id } = useParams();
 
-    console.log('Query Parameter ID:', id);
+    console.log('Dynamic Route ID:', id);
 
     return (
         <div>
