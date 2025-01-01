@@ -3,9 +3,39 @@ import React from 'react'
 const Footer = () => {
     return (
         <div
-            className="px-standardSize"
+            className="bg-amber-300 text-black"
         >
-            Footer....
+            <div
+                className="flex flex-col px-standardSize"
+            >
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+                <span>
+                    Footer....
+                </span>
+            </div>
         </div>
     )
 }
