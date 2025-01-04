@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image';
 import React, { useState } from 'react'
 
 const Navbar = () => {
@@ -10,7 +11,9 @@ const Navbar = () => {
             className="flex flex-col md:flex-row justify-between text-white bg-gray-400 py-4 px-standardSize"
         >
             <div className="flex justify-between items-center mb-4 md:mb-0">
-                <div>Logo</div>
+                <div>
+                    <Image src="/assets/images/logo.png" alt="logo" width={50} height={50} />
+                </div>
                 <button
                     className="md:hidden"
                     onClick={() => setIsOpen(!isOpen)}
