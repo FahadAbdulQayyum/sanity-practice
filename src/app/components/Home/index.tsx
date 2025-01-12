@@ -56,14 +56,19 @@ const Home = () => {
         }
     };
 
+    const updateForm = (data: any) => {
+        console.log('data...', data);
+    }
+
     return (
         <div>
             {fetchedData?.length === 0 ? <h1>Loading...</h1> :
                 <div className='grid text-[10px] sm:text-[12px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 px-standardSize'>
                     {
                         fetchedData && fetchedData.map((v: dataType, i) => <div className="relative">
-                            <button className="bg-red-700 absolute top-2 right-2 text-white p-1 rounded cursor-pointer" onClick={() => deleteCard(v._id)}>Delete</button>
-                            <div className="flex justify-between items-center bg-gray-50 text-black p-2" onClick={() => handleNavigate(v._id)}>
+                            <button className="bg-red-700 absolute top-2 right-14 text-white p-1 rounded cursor-pointer" onClick={() => deleteCard(v._id)}>Delete</button>
+                            <button className="bg-green-700 absolute top-2 right-2 text-white p-1 rounded cursor-pointer" onClick={() => { updateForm(v) }}>Update</button>
+                            <div className="flex justify-between items-center bg-gray-50 text-black p-5" onClick={() => handleNavigate(v._id)}>
                                 <span>
                                     <h2
                                         className="font-bold uppercase text-sm sm:text-[16px] md:text-[14px]"
