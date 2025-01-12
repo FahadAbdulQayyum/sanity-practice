@@ -37,7 +37,7 @@ const FormComponent = () => {
         e.preventDefault();
         // Handle form submission logic here
         console.log(formData);
-        // await sendDataToCMS(formData);
+        await sendDataToCMS(formData);
     };
 
     // const sendDataToCMS = async (formData: FormData) => {
@@ -54,6 +54,33 @@ const FormComponent = () => {
     //         console.error('Error creating post:', error);
     //     }
     // }
+
+    const sendDataToCMS = async (formData: FormData) => {
+        try {
+            let imageAsset = null;
+
+            // Upload the image if it exists
+            if (formData.post_image) {
+                imageAsset = await client.assets.upload('image', formData.post_image, {
+                    filename: formData.post_image.name,
+                });
+            }
+
+            // Create the post document
+            const newPost = {
+                _type: 'post',
+                post_title: formData.post_title,
+                post_description: formData.post_description,
+                post_image: imageAsset ? { _type: 'image', asset: { _type: 'reference', _ref: imageAsset._id } } : null,
+            };
+
+            const result = await client.create(newPost);
+            console.log('Post created:', result);
+        } catch (error) {
+            console.error('Error creating post:', error);
+        }
+    };
+
 
     return (
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-md text-black">
