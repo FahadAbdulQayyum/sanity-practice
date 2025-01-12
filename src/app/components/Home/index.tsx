@@ -35,8 +35,13 @@ const Home = () => {
         router.push(`/detail/${id}`); // Navigate to the dynamic route
     };
 
-    const cardClicked = (id: string) => {
-        console.log('id...', id)
+    const deleteCard = async (postId: string) => {
+        try {
+            await client.delete(postId);
+            console.log(`Post ${postId} deleted successfully!`);
+        } catch (error) {
+            console.error('Error deleting post:', error?.message);
+        }
     }
 
     return (
@@ -44,23 +49,25 @@ const Home = () => {
             {fetchedData?.length === 0 ? <h1>Loading...</h1> :
                 <div className='grid text-[10px] sm:text-[12px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 px-standardSize'>
                     {
-                        fetchedData && fetchedData.map((v: dataType, i) => <div className="flex justify-between items-center bg-gray-50 text-black p-2 relative" key={i} onClick={() => handleNavigate(v._id)}>
-                            <span>
-                                <small className="bg-red-700 absolute top-2 right-2 text-white p-1 rounded" onClick={() => cardClicked(v._id)}>Delete</small>
-                                <h2
-                                    className="font-bold uppercase text-sm sm:text-[16px] md:text-[14px]"
-                                >{v.post_title}</h2>
-                                <span
-                                    className="space-y-2"
-                                >
-                                    <p>{v.post_description}</p>
-                                    <Image
-                                        src={urlFor(v?.post_image)?.url()}
-                                        alt={v.post_title}
-                                        width="120"
-                                        height="120" />
+                        fetchedData && fetchedData.map((v: dataType, i) => <div className="relative">
+                            <button className="bg-red-700 absolute top-2 right-2 text-white p-1 rounded cursor-pointer" onClick={() => deleteCard(v._id)}>Delete</button>
+                            <div className="flex justify-between items-center bg-gray-50 text-black p-2" key={i} onClick={() => handleNavigate(v._id)}>
+                                <span>
+                                    <h2
+                                        className="font-bold uppercase text-sm sm:text-[16px] md:text-[14px]"
+                                    >{v.post_title}</h2>
+                                    <span
+                                        className="space-y-2"
+                                    >
+                                        <p>{v.post_description}</p>
+                                        <Image
+                                            src={urlFor(v?.post_image)?.url()}
+                                            alt={v.post_title}
+                                            width="120"
+                                            height="120" />
+                                    </span>
                                 </span>
-                            </span>
+                            </div>
                         </div>)
                     }
                 </div>
