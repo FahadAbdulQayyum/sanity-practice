@@ -40,21 +40,6 @@ const FormComponent = () => {
         await sendDataToCMS(formData);
     };
 
-    // const sendDataToCMS = async (formData: FormData) => {
-    //     try {
-    //         const newPost = {
-    //             _type: 'post',
-    //             post_title: formData.post_title,
-    //             post_description: formData.post_description,
-    //             post_image: formData.post_image,
-    //         };
-    //         const result = await client.create(newPost);
-    //         console.log('Post created:', result);
-    //     } catch (error) {
-    //         console.error('Error creating post:', error);
-    //     }
-    // }
-
     const sendDataToCMS = async (formData: FormData) => {
         try {
             let imageAsset = null;
@@ -80,7 +65,6 @@ const FormComponent = () => {
             console.error('Error creating post:', error);
         }
     };
-
 
     return (
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-md text-black">
