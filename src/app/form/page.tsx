@@ -4,7 +4,7 @@ import FormComponent from '../components/Form'
 // import { useRouter } from 'next/navigation';
 
 // interface FormProps {
-//     // searchParams: { [key: string]: string | undefined };
+//     /// searchParams: { [key: string]: string | undefined };
 // }
 
 const Form = () => {
