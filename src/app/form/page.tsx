@@ -8,7 +8,7 @@ import FormComponent from '../components/Form'
 // }
 
 const Form = () => {
-    // const Form = ({ searchParams }: FormProps) => {
+    /// const Form = ({ searchParams }: FormProps) => {
 
     // const router = useRouter();
     // const { id, name } = router.query;
