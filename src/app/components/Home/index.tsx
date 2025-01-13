@@ -74,9 +74,9 @@ const Home = () => {
 
     const updateForm = (data: dataType) => {
         console.log('====================================');
-        console.log('data...', data);
+        console.log('data...', JSON.stringify(data));
         console.log('====================================');
-        router.push(`/form?id=${data}`);
+        router.push(`/form?id=${JSON.stringify(data)}`);
     }
 
     return (
