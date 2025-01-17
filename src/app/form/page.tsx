@@ -10,7 +10,7 @@ interface FormProps {
 // const Form = () => {
 const Form = ({ searchParams }: FormProps) => {
 
-    const router = useRouter();
+    // const router = useRouter();
     // const { id, name } = router.query;
 
     // const [userData, setUserData] = useState<{ id: number; name: string; age: number } | null>(null);
