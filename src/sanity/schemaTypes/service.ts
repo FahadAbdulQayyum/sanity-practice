@@ -14,7 +14,7 @@ export default {
             title: 'Variation'
         },
         {
-            name: 'city available',
+            name: 'city_available',
             type: 'string',
             title: 'City Available'
         },
