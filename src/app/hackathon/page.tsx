@@ -21,6 +21,7 @@ type dataType = {
 
 const FetchingSanityData = () => {
     const [fetchedData, setFetchedData] = useState<dataType[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchFunction = async () => {
@@ -36,9 +37,14 @@ const FetchingSanityData = () => {
                 }
             `);
             setFetchedData(data);
+            setLoading(false);
         };
         fetchFunction();
     }, []);
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    }
 
     return (
         <div className="container mx-auto p-4">
