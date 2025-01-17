@@ -1,70 +1,37 @@
 export default {
     name: 'product',
     type: 'document',
-    title: 'Product',
+    title: 'Service',
     fields: [
         {
             name: 'name',
             type: 'string',
-            title: 'Product Name',
+            title: 'Service Name',
         },
         {
-            name: 'description',
+            name: 'variation',
             type: 'string',
-            title: 'Description'
+            title: 'Variation'
+        },
+        {
+            name: 'city available',
+            type: 'string',
+            title: 'City Available'
         },
         {
             name: 'price',
             type: 'number',
-            title: 'Product Price',
+            title: 'Service Price',
         },
         {
-            name: 'discountPercentage',
-            type: 'number',
-            title: 'Discount Percentage',
+            name: 'currently_offered',
+            type: 'boolean',
+            title: 'Currently Offered',
         },
         {
-            name: 'priceWithoutDiscount',
-            type: 'number',
-            title: 'Price Without Discount',
-            description: 'Original price before discount'
-        },
-        {
-            name:'rating',
-            type:'number',
-            title:'Rating',
-            description:'Rating of the product'
-        },
-        {
-            name: 'ratingCount',
-            type: 'number',
-            title: 'Rating Count',
-            description: 'Number of ratings'
-        },
-        {
-            name: 'tags',
-            type: 'array',
-            title: 'Tags',
-            of: [{ type: 'string' }],
-            options: {
-                layout: 'tags'
-            },
-            description: 'Add tags like "new arrival", "bestseller", etc.'
-        },
-        {
-            name: 'sizes',
-            type: 'array',
-            title: 'Sizes',
-            of: [{ type: 'string' }],
-            options: {
-                layout: 'tags'
-            },
-            description: 'Add sizes like S , M , L , XL , XXL'
-        },
-        {
-            name: 'image',
+            name: 'pic',
             type: 'image',
-            title: 'Product Image',
+            title: 'Service Image',
             options: {
                 hotspot: true // Enables cropping and focal point selection
             }
