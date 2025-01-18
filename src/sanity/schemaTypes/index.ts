@@ -3,7 +3,8 @@ import { type SchemaTypeDefinition } from 'sanity'
 import postType from './postType';
 import service from './service';
 import location from './location';
+import agent from './agent';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [postType, service, location],
+  types: [postType, service, location, agent],
 }
