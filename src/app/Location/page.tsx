@@ -1,7 +1,7 @@
 "use client"
 import { client } from '@/sanity/lib/client'
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 
 interface locationType {
     name: string
