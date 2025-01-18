@@ -37,10 +37,10 @@ const Location = () => {
     const handleLocationClick = (name: string) => {
         setSearchTerm(name);
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            router.push('/services');
-        }, 5000);
+        // setTimeout(() => {
+        // setLoading(false);
+        router.push(`/services?address=${JSON.stringify(name)}`);
+        // }, 5000);
     };
 
     return (
