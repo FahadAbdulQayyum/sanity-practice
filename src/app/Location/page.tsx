@@ -49,7 +49,8 @@ const Location = () => {
                 {loading && <div className="loader absolute left-0 ml-2 border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>}
                 <input
                     placeholder="Enter your location"
-                    className='flex p-2 rounded-t-lg cursor-none text-black pl-10'
+                    // className='flex p-2 rounded-t-lg cursor-none text-black pl-10'
+                    className={`flex p-2 ${location ? 'rounded-t-lg' : 'rounded-lg'} cursor-none text-black pl-10`}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -60,7 +61,8 @@ const Location = () => {
                 {filteredLocation?.map((v: locationType, i: number) => (
                     <div
                         key={i}
-                        className="flex flex-col px-[18px] bg-white hover:bg-gray-200 cursor-pointer my-2"
+                        // className="flex flex-col px-[33px] bg-white hover:bg-gray-200 cursor-pointer py-2"
+                        className="flex flex-col w-[242px] bg-white hover:bg-gray-200 cursor-pointer p-2"
                         onClick={() => handleLocationClick(v.name)}
                     >
                         {v.name}
