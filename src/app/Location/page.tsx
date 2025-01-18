@@ -1,16 +1,18 @@
 "use client"
 import { client } from '@/sanity/lib/client'
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface locationType {
     name: string
 }
 
 const Location = () => {
-
     const [location, setLocation] = useState<locationType[]>();
     const [filteredLocation, setFilteredLocation] = useState<locationType[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         const fetchLocation = async () => {
@@ -32,18 +34,38 @@ const Location = () => {
         }
     }, [searchTerm, location]);
 
+    const handleLocationClick = (name: string) => {
+        setSearchTerm(name);
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            // router.push('/service');
+        }, 5000);
+    };
+
     return (
         <div className="flex flex-col justify-center items-center h-screen ">
-            <input
-                placeholder="Enter your location"
-                className='flex p-2 rounded-t-lg cursor-none text-black'
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <div className="relative flex items-center">
+                {loading && <div className="loader absolute left-0 ml-2 border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>}
+                <input
+                    placeholder="Enter your location"
+                    className='flex p-2 rounded-t-lg cursor-none text-black pl-10'
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </div>
             <div
                 className="bg-white text-black h-32 overflow-y-scroll scrollbar-hide"
             >
-                {filteredLocation?.map((v: locationType, i: number) => <div key={i} className="flex flex-col px-[18px] hover:bg-gray-200 cursor-pointer my-2">{v.name}</div>)}
+                {filteredLocation?.map((v: locationType, i: number) => (
+                    <div
+                        key={i}
+                        className="flex flex-col px-[18px] hover:bg-gray-200 cursor-pointer my-2"
+                        onClick={() => handleLocationClick(v.name)}
+                    >
+                        {v.name}
+                    </div>
+                ))}
             </div>
         </div>
     )
