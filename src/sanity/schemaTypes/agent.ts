@@ -10,12 +10,12 @@ export default {
         },
         {
             name: 'available_time',
-            type: 'string',
+            type: 'Array',
             title: 'Available Time'
         },
         {
             name: 'service_provides',
-            type: 'string',
+            type: 'Array',
             title: 'Service Provides'
         },
         {
