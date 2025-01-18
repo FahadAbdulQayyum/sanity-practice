@@ -1,7 +1,7 @@
 "use client"
 import { client } from '@/sanity/lib/client'
 import React, { useEffect, useState } from 'react'
-// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 interface locationType {
     name: string
@@ -12,7 +12,7 @@ const Location = () => {
     const [filteredLocation, setFilteredLocation] = useState<locationType[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(false);
-    // const router = useRouter();
+    const router = useRouter();
 
     useEffect(() => {
         const fetchLocation = async () => {
@@ -39,7 +39,7 @@ const Location = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-            // router.push('/service');
+            router.push('/services');
         }, 5000);
     };
 
@@ -49,7 +49,6 @@ const Location = () => {
                 {loading && <div className="loader absolute left-0 ml-2 border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>}
                 <input
                     placeholder="Enter your location"
-                    // className='flex p-2 rounded-t-lg cursor-none text-black pl-10'
                     className={`flex p-2 ${location ? 'rounded-t-lg' : 'rounded-lg'} cursor-none text-black pl-10`}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}

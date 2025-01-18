@@ -43,7 +43,9 @@ const FetchingSanityData = () => {
     }, []);
 
     if (loading) {
-        return <div className="flex justify-center items-center h-screen">Loading...</div>;
+        return <div className="flex justify-center items-center h-screen relative">
+            <div className="loader  border-t-2 border-b-2 border-blue-500 rounded-full w-6 h-6 animate-spin"></div>
+        </div>;
     }
 
     return (
