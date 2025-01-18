@@ -11,12 +11,14 @@ export default {
         {
             name: 'available_time',
             type: 'array',
-            title: 'Available Time'
+            title: 'Available Time',
+            of: [{ type: 'string' }]
         },
         {
             name: 'service_provides',
             type: 'array',
-            title: 'Service Provides'
+            title: 'Service Provides',
+            of: [{ type: 'string' }]
         },
         {
             name: 'portfolio',
