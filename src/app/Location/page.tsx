@@ -12,7 +12,7 @@ const Location = () => {
     const [filteredLocation, setFilteredLocation] = useState<locationType[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
+    // const router = useRouter();
 
     useEffect(() => {
         const fetchLocation = async () => {
@@ -55,12 +55,12 @@ const Location = () => {
                 />
             </div>
             <div
-                className="bg-white text-black h-32 overflow-y-scroll scrollbar-hide"
+                className="bg-transparent text-black h-32 overflow-y-scroll scrollbar-hide"
             >
                 {filteredLocation?.map((v: locationType, i: number) => (
                     <div
                         key={i}
-                        className="flex flex-col px-[18px] hover:bg-gray-200 cursor-pointer my-2"
+                        className="flex flex-col px-[18px] bg-white hover:bg-gray-200 cursor-pointer my-2"
                         onClick={() => handleLocationClick(v.name)}
                     >
                         {v.name}
