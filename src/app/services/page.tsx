@@ -29,7 +29,7 @@ const FetchingSanityData = () => {
 
     useEffect(() => {
         const fetchFunction = async () => {
-            let data: dataType[] = await client.fetch(`
+            const data: dataType[] = await client.fetch(`
                 *[_type=='service']{
                     _id, 
                     name, 
